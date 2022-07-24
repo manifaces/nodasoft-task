@@ -1,0 +1,63 @@
+@mixin font($fname, $fstyle, $fweight, $furl) {
+	@font-face {
+		font-family: $fname;
+		font-style: $fstyle;
+		font-weight: $fweight;
+		src: url($furl) format('woff2');	
+	}
+}
+
+@include font('Roboto', normal, 400, '../fonts/roboto-regular-webfont.woff2');
+
+:root {
+	--app-width: 1200px;
+	--app-padding: 0 15px;
+	--app-gap: 15px;
+
+	--font-default: 'Roboto', sans-serif;
+}
+
+*,
+*:after,
+*:before {
+	box-sizing: inherit;
+}
+
+html {
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body,
+html {
+	box-sizing: border-box;
+	height: 100%;
+}
+
+body {
+	position: relative;
+	min-width: 320px;
+	padding: 0;
+	margin: 0;
+	font-family: var(--font-default);
+	overflow-x: hidden;
+}
+
+.btn {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	padding: 8px 15px;
+	color: #fff;
+	background-color: #A5C7F9;
+	border-radius: 5px;
+	transition: .3s all;
+	cursor: pointer;
+	&--small {
+		width: 42px;
+        height: 42px;
+		background-color: #7FAFF6;
+	}
+	&:hover, &:focus {
+		background-color: lighten(#A5C7F9, 5%);
+	}
+}
